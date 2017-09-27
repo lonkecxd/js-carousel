@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pretty Slide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="pretty_slide.css">
+</head>
+<body>
+<div id="app">
+    <div class="postarea">
+        <div :style="computed_left" class="posts">
+            <div v-for="(work,id) in works" :class="{cur_item:id==now_index}" class="postbox">
+                <div :style="bg_css(work.cover)" class="cover">
+                    <div class="infos">
+                        <h1>{{work.title}}</h1>
+                        <h5>{{work.description}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div @click="delta(-1)" class="control_left"><i class="fa fa-angle-left"></i></div>
+    <div @click="delta(1)" class="control_right"><i class="fa fa-angle-right"></i></div>
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+<script src="pretty_slide.js"></script>
+</html>
